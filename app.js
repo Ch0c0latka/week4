@@ -7,15 +7,13 @@ const categoriesRouter = require('./routes/categories');
 const mainRoute = require('./routes/main');
 
 const connectToDatabase = require('./database/connect');
-const cors = require('./middlewares/cors');
 
 const app = express();
 const PORT = 3000;
 
 connectToDatabase();
 
-app.use(
-  cors, 
+app.use( 
   bodyParser.json(),
   express.static(path.join(__dirname, 'public')),
   mainRoute,
